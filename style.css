@@ -1,0 +1,222 @@
+/* General Body and Container Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#B27179, #FFB37B, #FFF19C);
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #333;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+/* Homepage Section */
+.homepage {
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.homepage h1 {
+    color: #4CAF50;
+}
+
+/* Task Sections */
+section h2 {
+    font-size: 24px;
+    color: #333;
+}
+
+/* Task 1 - Textarea */
+#task1 textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+/* Task 2 - Layout for images and explanations */
+.task2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.task2-item {
+    position: relative;
+    background-color: #f4f4f4; /* Light background color for grid items */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.task2-item:hover {
+    background-color: #e0f7fa;
+}
+
+.image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    display: block;
+    margin: 0 auto 10px;
+    border-radius: 4px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.image:hover {
+    transform: scale(1.05);
+}
+
+.image-title {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+/* Explanation box */
+.image-explanation {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(3, 3, 3, 0.7);
+    color: rgb(255, 255, 255);
+    padding: 15px;
+    border-radius: 4px;
+    font-size: 18px;
+    box-sizing: border-box;
+    z-index: 10; /* Ensures explanation is above other content */
+    text-align: justify; /* Justify the text */
+    overflow-y: auto; /* Allows scrolling if content is too long */
+    word-wrap: break-word; /* Ensures text doesn't overflow out of the box */
+}
+
+/* Show explanation when hovering over the image */
+.task2-item:hover .image-explanation {
+    display: block;
+}
+
+/* Modify the explanation visibility for mobile */
+@media screen and (max-width: 768px) {
+    .task2-item:focus-within .image-explanation {
+        display: block;
+    }
+
+    .task2-item .image-explanation {
+        font-size: 12px;
+    }
+
+    .task2-item .image-title {
+        font-size: 14px;
+    }
+}
+
+/* Task 3 Section - Similar layout as Task 2 */
+/* Task 3 Section - Display only two boxes */
+.task3 {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Fixed two columns */
+    gap: 20px;
+}
+
+
+.task3-item {
+    position: relative;
+    background-color: #e0f7fa; /* Light blue background color for task3 items */
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: background-color 0.3s ease; /* Smooth color transition on hover */
+}
+
+.task3-item:hover {
+    background-color: #80deea; /* Change to light blue on hover */
+}
+
+.task3-item .image {
+    max-width: 100%; /* Ensure the image takes up full width of the container */
+    margin-bottom: 15px; /* Adds space below the image */
+    text-align: justify
+}
+
+.task3-item .image-title {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.task3-item .image-explanation {
+    font-size: 16px; /* Adjust font size for better readability */
+    padding: 15px;
+    background-color: rgba(3, 3, 3, 0.7);
+    color: white;
+    border-radius: 4px;
+    text-align: justify;
+    overflow-y: auto;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .task2, .task3 {
+        grid-template-columns: 1fr; /* Stacks the task items on smaller screens */
+    }
+
+    .task2-item, .task3-item {
+        padding: 10px;
+    }
+
+    .image {
+        max-width: 100%; /* Makes images responsive */
+    }
+
+    .image-title {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .image-explanation {
+        font-size: 12px;
+    }
+
+    .image-title {
+        font-size: 12px;
+    }
+
+    #task1 textarea {
+        font-size: 14px;
+    }
+}
